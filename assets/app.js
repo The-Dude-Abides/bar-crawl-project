@@ -5,7 +5,7 @@ $(document).ready(() => {
     var map, infoWindow;
     map = new google.maps.Map($('#map'), {
       center: {lat: 39.4421, lng: 104.593},
-      zoom: 5
+      zoom: 9
     });
 
     infoWindow = new google.maps.infoWindow;
@@ -39,5 +39,21 @@ $(document).ready(() => {
     infoWindow.open(map);
   };
 
-});
+  initMap();
+  handleLocationError();
 
+  var ageCheck = () => {
+    $('#welcomeJumbotron').hide();
+    $('#logIn').hide();
+    $('#signUp').show();
+
+    $('#signUpButton').on('click', () => {
+      $('#signUp').hide();
+      $('#welcomeJumbotron').show();
+    });
+
+    $('#logInButton').on('click', () => {
+      $('#logIn').hide();
+    })
+  };
+});
