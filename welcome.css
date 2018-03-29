@@ -4,7 +4,7 @@
     height:700px;
     background-size: cover; /* or contain depending on what you want */
     background-position: center center;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     margin-top: -90px;
     padding:0;
     vertical-align: middle;
