@@ -15,30 +15,15 @@
     <div class="row">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 1200px; height: 300px; margin-top: -35px; margin-left: -100px; background: url('https://media.giphy.com/media/EFbbyuaqmFnu8/giphy.gif');">
-                <a class="navbar-brand" href="#">Bar Crawl</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sign Up</a>
-                        </li>
-                    </ul>
-                </div>
             </nav>
         </div>
 
     </div>
 
+    <!-- <br>
     <br>
     <br>
-    <br>
-    <br>
+    <br> -->
 
     <div class="row backgroundImage" id="welcomeJumbotron">
         <div class="container">
@@ -47,41 +32,47 @@
                     <h1 class="display-4">Welcome to Build Your Own Bar Crawl!</h1>
                     <p class="lead">The only site, that we know of, on the internet where you can build your own bar crawl experience!.</p>
                 </div>
+                <p class="lead">
+                    <a class="btn btn-warning btn-lg" id="logInButton" href="#" role="button">Log In</a>
+                </p>
+                <p class="lead">
+                    <a class="btn btn-dark btn-lg" id="signUpButton" href="#" role="button">Sign Up</a>
+                </p>
             </div>
         </div>
 
     </div>
 
-    <div class="row" id="signUp">
-        <div class="container jumbotron jumbotron-fluid">
+    <div class="row backgroundImage" id="signUp">
+        <div class="container jumbotron jumbotron-fluid" id="signUpJumbotron">
             <form>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Name</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="John Smith">
+                    <input class="form-control" id="exampleFormControlInput1 name" placeholder="John Smith">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Email</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="exampleFormControlInput1 email" placeholder="name@example.com">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Age</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ex: 21">
+                    <input class="form-control" id="exampleFormControlInput1 age" placeholder="Ex: 21">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">City and State</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ex: Boulder, CO">
+                    <input class="form-control" id="exampleFormControlInput1 location" placeholder="Ex: Boulder, CO">
                 </div>
                 <div class="form-group">
-                        <label for="exampleFormControlInput1">Password</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="123456">
-                    </div>
+                    <label for="exampleFormControlInput1">Password</label>
+                    <input type="password" class="form-control" id="exampleFormControlInput1 password" placeholder="123456">
+                </div>
                 <button type="submit" class="btn btn-primary" id="signUpButton">Submit</button>
         </div>
         </form>
     </div>
 
-    <div class="row" id="logIn">
-        <div class="container jumbotron jumbotron-fluid">
+    <div class="row backgroundImage" id="logIn">
+        <div class="container jumbotron jumbotron-fluid" id="logInJumbotron">
             <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
@@ -93,10 +84,18 @@
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-primary" id="logInButton">Submit</button>
-                </div>
-            </form>
         </div>
+        </form>
+    </div>
 
+    <!-- JQuery Linking -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Firebase linking -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+    <!-- Linking our JS file -->
+    <script type="text/javascript" src="./assets/welcome.js"></script>
 </body>
 
 </html>
