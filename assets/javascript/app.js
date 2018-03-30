@@ -62,26 +62,11 @@ $(document).ready(function () {
   $('#tacos').on('click', () => {
     console.log('I want tacos!');
     var initMap = () => {
-      var myLatLng = [{
+      var myLatLng = {
+        location: 'Machete',
         lat: 39.753101,
         lng: -104.999082
-      },
-      {
-        lat: 39.751446,
-        lng: -105.001692
-      },
-      {
-        lat: 39.757570,
-        lng: -104.986878
-      },
-      {
-        lat: 39.759247,
-        lng: -105.010822
-      },
-      {
-        lat: 39.747763,
-        lng: -104.984184
-      }];
+      };
 
       map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
@@ -93,31 +78,18 @@ $(document).ready(function () {
         map: map
       });
     };
+
+    initMap();
+
   });
 
   $('#thirsty').on('click', () => {
     console.log('I\'m thirsty!');
     var initMap = () => {
-      var myLatLng = [{
-        lat: 39.753101,
-        lng: -104.999082
-      },
-      {
-        lat: 39.751446,
-        lng: -105.001692
-      },
-      {
-        lat: 39.757570,
-        lng: -104.986878
-      },
-      {
-        lat: 39.759247,
-        lng: -105.010822
-      },
-      {
-        lat: 39.747763,
-        lng: -104.984184
-      }];
+      var myLatLng = {
+        lat: 39.754478,
+        lng: -104.995178
+      };
 
       map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
@@ -129,31 +101,18 @@ $(document).ready(function () {
         map: map
       });
     };
+
+    initMap();
+
   });
 
   $('#happy').on('click', () => {
     console.log('I want to pay for cheap beer!');
     var initMap = () => {
-      var myLatLng = [{
-        lat: 39.753101,
-        lng: -104.999082
-      },
-      {
-        lat: 39.751446,
-        lng: -105.001692
-      },
-      {
-        lat: 39.757570,
-        lng: -104.986878
-      },
-      {
-        lat: 39.759247,
-        lng: -105.010822
-      },
-      {
-        lat: 39.747763,
-        lng: -104.984184
-      }];
+      var myLatLng = {
+        lat: 30.310133,
+        lng: -95.456260
+      };
 
       map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
@@ -165,32 +124,20 @@ $(document).ready(function () {
         map: map
       });
     };
+
+    initMap();
+
   });
 
   $('#trivia').on('click', () => {
     console.log('I\'m feeling smart!');
     var initMap = () => {
-      var myLatLng = [{
-        lat: 39.753101,
-        lng: -104.999082
-      },
-      {
-        lat: 39.751446,
-        lng: -105.001692
-      },
-      {
-        lat: 39.757570,
-        lng: -104.986878
-      },
-      {
-        lat: 39.759247,
-        lng: -105.010822
-      },
-      {
-        lat: 39.747763,
-        lng: -104.984184
-      }];
+      var myLatLng = {
+        lat: 39.757525,
+        lng: -104.990393
+      };
 
+      
       map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
         center: myLatLng
@@ -201,6 +148,9 @@ $(document).ready(function () {
         map: map
       });
     };
+
+    initMap();
+    
   });
 
     // function initAutocomplete() {
