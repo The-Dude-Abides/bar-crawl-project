@@ -4,7 +4,10 @@ $(document).ready(function () {
   function initialize() {
     // Create a map centered in Pyrmont, Sydney (Australia).
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 39.7392, lng: -104.9903},
+      center: {
+        lat: 39.7392,
+        lng: -104.9903
+      },
       zoom: 15
     });
 
@@ -12,15 +15,17 @@ $(document).ready(function () {
     var request = {
       location: map.getCenter(),
       radius: '500',
-      query: $('#searchBox').val().trim()
+      query: $('#searchBox').val()
     };
 
-    var service = new google.maps.places.PlacesService(map);
-    service.textSearch(request, callback);
+    // var service = new google.maps.places.PlacesService(map);
+
+    // service.textSearch(request, callback);
   };
 
   // Checks that the PlacesServiceStatus is OK, and adds a marker
   // using the place ID and location from the PlacesService.
+
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       var marker = new google.maps.Marker({
@@ -30,8 +35,8 @@ $(document).ready(function () {
           location: results[0].geometry.location
         }
       });
-    }
-  }
+    };
+  };
 
   google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -49,13 +54,45 @@ $(document).ready(function () {
       console.log(response);
       $('.city').append(response.name);
       $('.wind').append(`Wind Speed: ${response.wind.speed} MPH`);
-      $('.humidity').append(`Humidity: ${response.main.humidity}`);
+      $('.humidity').append(`Humidity: ${response.main.humidity}%`);
       var temp = Math.floor(((response.main.temp - 273.15) * 1.8) + 32);
       $('.temp').append(`Tempature: ${temp}f`);
   });
 
+  $('#tacos').on('click', () => {
+    console.log('I want tacos!');
+    var initMap = () => {
+      var myLatLng = [{
+        lat: 39.753101,
+        lng: -104.999082
+      }];
+
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: myLatLng
+      });
+
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map
+      });
+    };
+  });
+
+  $('#thirsty').on('click', () => {
+    console.log('I\'m thirsty!');
+  });
+
+  $('#happy').on('click', () => {
+    console.log('I want to pay for cheap beer!');
+  });
+
+  $('#trivia').on('click', () => {
+    console.log('I\'m feeling smart!');
+  });
+
     // function initAutocomplete() {
-    //     var map = new google.maps.Map(document.getElementById('map'), {
+    //     var map = new google.maps.Map($('#map'), {
     //         center: { lat: 39.7392, lng: -104.9903 },
     //         zoom: 13,
     //         mapTypeId: 'roadmap'
