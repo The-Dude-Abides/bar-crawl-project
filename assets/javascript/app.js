@@ -84,7 +84,7 @@ $(document).ready(function () {
             map.setZoom(8);
             map.setCenter(marker.getPosition());
         });
-    }
+    };
 
     var APIKey = "5dd2a3eaffbc2b464e3e24b8a9a82bb7";
 

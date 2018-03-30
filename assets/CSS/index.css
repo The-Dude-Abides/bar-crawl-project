@@ -7,6 +7,7 @@
     height: 725px;
     background: url(../../images/chalkboard.png);
     color: white;
+    text-align: center;
 }
 
 #weatherBackground {
@@ -17,6 +18,7 @@
     background: url(../../images/chalkboard.png);
     color: white;
     margin-left: -15px;
+    text-align: center;
 }
 
 #eventButtons {
@@ -27,6 +29,7 @@
     height: 375px;
     width: 200px;
     background: url(../../images/chalkboard.png);
+    text-align: center;
 }
 
 #eventButtons > h3 {
