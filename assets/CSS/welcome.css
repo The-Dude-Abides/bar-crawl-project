@@ -1,5 +1,5 @@
 .backgroundImage {
-    background-image: url("./images/partyBackground.jpeg");
+    background-image: url(../../images/partyBackground.jpeg);
     width: 1200px;
     height:700px;
     background-size: cover; /* or contain depending on what you want */
