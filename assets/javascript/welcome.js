@@ -6,12 +6,12 @@ $(document).ready(function () {
     $('#signUpButton').on('click', function (event) {
         $("#welcomeJumbotron").hide();
         $('#signUp').show();
-    })
+    });
 
     $('#logInButton').on('click', function (event) {
         $("#welcomeJumbotron").hide();
         $('#logIn').show();
-    })
+    });
 
     // Initialize Firebase
     var config = {
@@ -22,6 +22,7 @@ $(document).ready(function () {
         storageBucket: "bar-crawl-project.appspot.com",
         messagingSenderId: "895017151245"
     };
+
     firebase.initializeApp(config);
 
     // get elements
@@ -37,6 +38,7 @@ $(document).ready(function () {
         const email = txtEmail.val().trim();
         const password = txtPassword.val().trim();
         const auth = firebase.auth();
+
         // sign in
         const promise = auth.signInWithEmailAndPassword(email, pass);
         promise.catch(e => console.log(e.message));
@@ -48,6 +50,7 @@ $(document).ready(function () {
         const email = txtEmail.val().trim();
         const password = txtPassword.val().trim();
         const auth = firebase.auth();
+
         // sign in
         const promise = auth.createUserWithEmailAndPassword(email, pass);
         promise.catch(e => console.log(e.message));
@@ -59,7 +62,7 @@ $(document).ready(function () {
             console.log(firebaseUser);
         } else {
             console.log('not logged in');
-        }
+        };
     });
 
     // var database = firebase.database();
@@ -71,6 +74,7 @@ $(document).ready(function () {
     // $('#signUpSubmitButton').on('click', function (event) {
     //     //prevent page from refreshing
     //     event.preventDefault();
+
     //     // changing variables to what is inputted by user
     //     email = $('#email').val().trim();
     //     password = $('#password').val().trim();
@@ -78,7 +82,6 @@ $(document).ready(function () {
     //     database.ref().push({
     //         email: email,
     //         password: password
-
     //     });
 
     //     email = $('#email').val("");
