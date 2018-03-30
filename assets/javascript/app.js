@@ -94,7 +94,7 @@ $(document).ready(function () {
     //   zoom:12,
     //   mapTypeId: google.maps.MapTypeId.ROADMAP
     // });
-   
+
     // directionsDisplay.setMap(map);
     // directionsDisplay.setPanel(document.getElementById('panel'));
 
@@ -112,42 +112,74 @@ $(document).ready(function () {
     // });
 
 
-var map;
+    // var map;
 
-function initialize() {
-  // Create a map centered in Pyrmont, Sydney (Australia).
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 39.7392, lng: -104.9903},
-    zoom: 15
-  });
+    // function initialize() {
+    //   // Create a map centered in Pyrmont, Sydney (Australia).
+    //   map = new google.maps.Map(document.getElementById('map'), {
+    //     center: {lat: 39.7392, lng: -104.9903},
+    //     zoom: 15
+    //   });
 
-  // Search for Google's office in Australia.
-  var request = {
-    location: map.getCenter(),
-    radius: '500',
-    query: 'Google Sydney'
-  };
+    //   // Search for Google's office in Australia.
+    //   var request = {
+    //     location: map.getCenter(),
+    //     radius: '500',
+    //     query: 'Google Sydney'
+    //   };
 
-  var service = new google.maps.places.PlacesService(map);
-  service.textSearch(request, callback);
-}
+    //   var service = new google.maps.places.PlacesService(map);
+    //   service.textSearch(request, callback);
+    // }
 
-// Checks that the PlacesServiceStatus is OK, and adds a marker
-// using the place ID and location from the PlacesService.
-function callback(results, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    var marker = new google.maps.Marker({
-      map: map,
-      place: {
-        placeId: results[0].place_id,
-        location: results[0].geometry.location
-      }
-    });
-  }
-}
+    // // Checks that the PlacesServiceStatus is OK, and adds a marker
+    // // using the place ID and location from the PlacesService.
+    // function callback(results, status) {
+    //   if (status == google.maps.places.PlacesServiceStatus.OK) {
+    //     var marker = new google.maps.Marker({
+    //       map: map,
+    //       place: {
+    //         placeId: results[0].place_id,
+    //         location: results[0].geometry.location
+    //       }
+    //     });
+    //   }
+    // }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+    // google.maps.event.addDomListener(window, 'load', initialize);
 
+   
+    var map;
+    var service;
+    var infowindow;
+
+    function initialize() {
+        var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 15
+        });
+
+        var request = {
+            location: pyrmont,
+            radius: '500',
+            query: 'restaurant'
+        };
+
+        service = new google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
+    }
+
+    function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                var place = results[i];
+                createMarker(results[i]);
+            }
+        }
+    }
+    
 
     var weatherAPIKey = "5dd2a3eaffbc2b464e3e24b8a9a82bb7";
 
