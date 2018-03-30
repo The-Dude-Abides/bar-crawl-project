@@ -38,7 +38,7 @@ $(document).ready(function () {
   var weatherAPIKey = "5dd2a3eaffbc2b464e3e24b8a9a82bb7";
 
   // Here we are building the URL we need to query the database
-  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Denver,Colorado&appid=" + weatherAPIKey;
+  var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=Denver,Colorado&appid=${weatherAPIKey}`;
 
   // We then created an AJAX call
   $.ajax({
@@ -48,8 +48,8 @@ $(document).ready(function () {
 
       console.log(response);
       $('.city').append(response.name);
-      $('.wind').append("Wind Speed: " + response.wind.speed + " MPH");
-      $('.humidity').append("Humidity " + response.main.humidity);
+      $('.wind').append(`Wind Speed: ${response.wind.speed} MPH`);
+      $('.humidity').append(`Humidity: ${response.main.humidity}`);
       var temp = Math.floor(((response.main.temp - 273.15) * 1.8) + 32);
       $('.temp').append(`Tempature: ${temp}f`);
   });
