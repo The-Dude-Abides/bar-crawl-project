@@ -56,16 +56,16 @@ $(document).ready(function () {
       $('.wind').append(`Wind Speed: ${response.wind.speed} MPH`);
       $('.humidity').append(`Humidity: ${response.main.humidity}%`);
       var temp = Math.floor(((response.main.temp - 273.15) * 1.8) + 32);
-      $('.temp').append(`Tempature: ${temp}f`);
+      $('.temp').append(`Tempature: ${temp}℉`);
   });
 
   $('#tacos').on('click', () => {
     console.log('I want tacos!');
     var initMap = () => {
-      var myLatLng = [{
+      var myLatLng = {
         lat: 39.753101,
         lng: -104.999082
-      }];
+      };
 
       map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
