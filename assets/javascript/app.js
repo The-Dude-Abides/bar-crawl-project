@@ -1,4 +1,59 @@
-$(document).ready(function () {
+$(document).ready(function () {    
+  var map;
+
+  function initialize() {
+    // Create a map centered in Pyrmont, Sydney (Australia).
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 39.7392, lng: -104.9903},
+      zoom: 15
+    });
+
+    // Search for Google's office in Australia.
+    var request = {
+      location: map.getCenter(),
+      radius: '500',
+      query: $('#searchBox').val().trim()
+    };
+
+    var service = new google.maps.places.PlacesService(map);
+    service.textSearch(request, callback);
+  };
+
+  // Checks that the PlacesServiceStatus is OK, and adds a marker
+  // using the place ID and location from the PlacesService.
+  function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      var marker = new google.maps.Marker({
+        map: map,
+        place: {
+          placeId: results[0].place_id,
+          location: results[0].geometry.location
+        }
+      });
+    }
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+  var weatherAPIKey = "5dd2a3eaffbc2b464e3e24b8a9a82bb7";
+
+  // Here we are building the URL we need to query the database
+  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Denver,Colorado&appid=" + weatherAPIKey;
+
+  // We then created an AJAX call
+  $.ajax({
+      url: queryURL,
+      method: "GET"
+  }).then(function (response) {
+
+      console.log(response);
+      $('.city').append(response.name);
+      $('.wind').append("Wind Speed: " + response.wind.speed + " MPH");
+      $('.humidity').append("Humidity " + response.main.humidity);
+      var temp = Math.floor(((response.main.temp - 273.15) * 1.8) + 32);
+      $('.temp').append(`Tempature: ${temp}f`);
+  });
+
     // function initAutocomplete() {
     //     var map = new google.maps.Map(document.getElementById('map'), {
     //         center: { lat: 39.7392, lng: -104.9903 },
@@ -111,44 +166,6 @@ $(document).ready(function () {
     //   }
     // });
 
-
-    var map;
-
-    function initialize() {
-      // Create a map centered in Pyrmont, Sydney (Australia).
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 39.7392, lng: -104.9903},
-        zoom: 15
-      });
-
-      // Search for Google's office in Australia.
-      var request = {
-        location: map.getCenter(),
-        radius: '500',
-        query: $('#searchBox').val().trim()
-      };
-
-      var service = new google.maps.places.PlacesService(map);
-      service.textSearch(request, callback);
-    }
-
-    // Checks that the PlacesServiceStatus is OK, and adds a marker
-    // using the place ID and location from the PlacesService.
-    function callback(results, status) {
-      if (status == google.maps.places.PlacesServiceStatus.OK) {
-        var marker = new google.maps.Marker({
-          map: map,
-          place: {
-            placeId: results[0].place_id,
-            location: results[0].geometry.location
-          }
-        });
-      }
-    }
-
-    google.maps.event.addDomListener(window, 'load', initialize);
-
-   
     // var map;
     // var service;
     // var infowindow;
@@ -179,24 +196,4 @@ $(document).ready(function () {
     //         }
     //     }
     // }
-    
-
-    var weatherAPIKey = "5dd2a3eaffbc2b464e3e24b8a9a82bb7";
-
-    // Here we are building the URL we need to query the database
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Denver,Colorado&appid=" + weatherAPIKey;
-
-    // We then created an AJAX call
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-
-        console.log(response);
-        $('.city').append(response.name);
-        $('.wind').append("Wind Speed: " + response.wind.speed + " MPH");
-        $('.humidity').append("Humidity " + response.main.humidity);
-        var temp = Math.floor(((response.main.temp - 273.15) * 1.8) + 32);
-        $('.temp').append(`Tempature: ${temp}f`);
-    });
 });
