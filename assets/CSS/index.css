@@ -4,6 +4,24 @@
   height: 600px;
   border-radius: 10px;
 }
+
+#mapBackground {
+    margin-top: -25px;
+    border-radius: 10px;
+    width: 800px;
+    height: 750px;
+    background: url(../../images/chalkboard.png);
+    color: white;
+}
+
+#weatherBackground {
+    margin-top: -25px;
+    border-radius: 10px;
+    width: 300px;
+    height: 250px;
+    background: url(../../images/chalkboard.png);
+    color: white;
+}
   
 /* Optional: Makes the sample page fill the window. */
 
