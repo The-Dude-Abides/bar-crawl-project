@@ -24,39 +24,64 @@ $(document).ready(function () {
     };
     firebase.initializeApp(config);
 
-    var database = firebase.database();
+    // get elements
+    const txtEmail = document.getElementById('email');
+    const txtPassword = document.getElementById('password');
+    const signUpButton = document.getElementById('signUpSubmitButton');
+    const logInButton = document.getElementById('logInButton');
+    const logOutButton = document.getElementById('logOut');
 
-    // initial variables
-    var name = '';
-    var email = '';
-    var age = 0;
-    var location = '';
-    var password = '';
-
-    $('#signUpButton').on('click', function (event) {
-        //prevent page from refreshing
-        event.preventDefault();
-        // changing variables to what is inputted by user
-        name = $('#name').val().trim();
-        email = $('#email').val().trim();
-        age = $('#age').val().trim();
-        location = $('#location').val().trim();
-        password = $('#password').val().trim();
-
-        database.ref().push({
-            name: name,
-            email: email,
-            age: age,
-            location: location,
-            password: password
-
-        });
-
-        name = $('#name').val("");
-        email = $('#email').val("");
-        age = $('#age').val("");
-        location = $('#location').val("");
-        password = $('#password').val("");
-
+    // add login event
+    logInButton.addEventListener('click', e => {
+        // get email and pass
+        const email = txtEmail.val().trim();
+        const password = txtPassword.val().trim();
+        const auth = firebase.auth();
+        // sign in
+        const promise = auth.signInWithEmailAndPassword(email, pass);
+        promise.catch(e => console.log(e.message));
     });
+
+    // add signup event
+    signUpButton.addEventListener('click', e => {
+        // get email and pass
+        const email = txtEmail.val().trim();
+        const password = txtPassword.val().trim();
+        const auth = firebase.auth();
+        // sign in
+        const promise = auth.createUserWithEmailAndPassword(email, pass);
+        promise.catch(e => console.log(e.message));
+    });
+
+    // add realtime listener
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        if (firebaseUser) {
+            console.log(firebaseUser);
+        } else {
+            console.log('not logged in');
+        }
+    });
+
+    // var database = firebase.database();
+
+    // // initial variables
+    // var email = '';
+    // var password = '';
+
+    // $('#signUpSubmitButton').on('click', function (event) {
+    //     //prevent page from refreshing
+    //     event.preventDefault();
+    //     // changing variables to what is inputted by user
+    //     email = $('#email').val().trim();
+    //     password = $('#password').val().trim();
+
+    //     database.ref().push({
+    //         email: email,
+    //         password: password
+
+    //     });
+
+    //     email = $('#email').val("");
+    //     password = $('#password').val("");
+
 });
