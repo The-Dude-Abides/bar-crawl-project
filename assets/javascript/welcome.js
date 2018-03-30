@@ -25,8 +25,8 @@ $(document).ready(function () {
     firebase.initializeApp(config);
 
     // get elements
-    const txtEmail = document.getElementById('email');
-    const txtPassword = document.getElementById('password');
+    const txtEmail = document.getElementById('signUpEmail');
+    const txtPassword = document.getElementById('signUpPassword');
     const signUpButton = document.getElementById('signUpSubmitButton');
     const logInButton = document.getElementById('logInButton');
     const logOutButton = document.getElementById('logOut');
