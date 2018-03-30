@@ -61,9 +61,12 @@ $(document).ready(function () {
 
   $('#tacos').on('click', () => {
     console.log('I want tacos!');
+
+    var markerLabels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var labelIndex = 0;
+
     var initMap = () => {
       var myLatLng = {
-        location: 'Machete',
         lat: 39.753101,
         lng: -104.999082
       };
@@ -75,6 +78,7 @@ $(document).ready(function () {
 
       var marker = new google.maps.Marker({
         position: myLatLng,
+        label: markerLabels[labelIndex++ % markerLabels.length],
         map: map
       });
     };
@@ -85,6 +89,10 @@ $(document).ready(function () {
 
   $('#thirsty').on('click', () => {
     console.log('I\'m thirsty!');
+
+    var markerLabels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var labelIndex = 0;
+
     var initMap = () => {
       var myLatLng = {
         lat: 39.754478,
@@ -98,6 +106,7 @@ $(document).ready(function () {
 
       var marker = new google.maps.Marker({
         position: myLatLng,
+        label: markerLabels[labelIndex++ % markerLabels.length],
         map: map
       });
     };
@@ -108,6 +117,10 @@ $(document).ready(function () {
 
   $('#happy').on('click', () => {
     console.log('I want to pay for cheap beer!');
+
+    var markerLabels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var labelIndex = 0;
+
     var initMap = () => {
       var myLatLng = {
         lat: 30.310133,
@@ -121,6 +134,7 @@ $(document).ready(function () {
 
       var marker = new google.maps.Marker({
         position: myLatLng,
+        label: markerLabels[labelIndex++ % markerLabels.length],
         map: map
       });
     };
@@ -131,12 +145,15 @@ $(document).ready(function () {
 
   $('#trivia').on('click', () => {
     console.log('I\'m feeling smart!');
+
+    var markerLabels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var labelIndex = 0;
+
     var initMap = () => {
       var myLatLng = {
         lat: 39.757525,
         lng: -104.990393
       };
-
       
       map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
@@ -145,12 +162,13 @@ $(document).ready(function () {
 
       var marker = new google.maps.Marker({
         position: myLatLng,
+        label: markerLabels[labelIndex++ % markerLabels.length],
         map: map
       });
     };
 
     initMap();
-    
+
   });
 
     // function initAutocomplete() {
