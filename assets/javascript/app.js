@@ -112,7 +112,7 @@ $(document).ready(function () {
     // });
 
 
-    var map;
+var map;
 
 function initialize() {
   // Create a map centered in Pyrmont, Sydney (Australia).
