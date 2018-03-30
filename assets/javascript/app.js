@@ -13,8 +13,8 @@ $(document).ready(function () {
     
       var request = {
         location: denver,
-        radius: '1000',
-        query: 'trivia'
+        radius: '500',
+        query: 'bar'
       };
     
       service = new google.maps.places.PlacesService(map);
@@ -61,81 +61,95 @@ $(document).ready(function () {
       $('.temp').append(`Tempature: ${temp}℉`);
   });
 
-  var tacoLocations = [
-    ['Machete Tequila & Tacos', 39.753101, -104.999082],
-    ['Marg\'s Taco Bistro', 39.751446, -105.001692],
-    ['Los Chingones', 39.757570, -104.986878],
-    ['Lola Coastal Mexican', 39.759247, -105.010822],
-    ['Wahoo\'s Fish Tacos', 39.747763, -104.984184]
-  ];
+//   var tacoLocations = [
+//     ['Machete Tequila & Tacos', 39.753101, -104.999082],
+//     ['Marg\'s Taco Bistro', 39.751446, -105.001692],
+//     ['Los Chingones', 39.757570, -104.986878],
+//     ['Lola Coastal Mexican', 39.759247, -105.010822],
+//     ['Wahoo\'s Fish Tacos', 39.747763, -104.984184]
+//   ];
 
-  var thirstyLocations = [
-    ['Jackson\'s Denver', 39.754478, -104.995178],
-    ['Whiskey Tango Foxtrot', 39.758524, -104.997603],
-    ['Viewhouse Ballpark', 39.754040, -104.993418],
-    ['Blake Street Tavern', 39.757525, -104.990393],
-    ['1 Up', 39.753907, -104.995130]
-  ];
+//   var thirstyLocations = [
+//     ['Jackson\'s Denver', 39.754478, -104.995178],
+//     ['Whiskey Tango Foxtrot', 39.758524, -104.997603],
+//     ['Viewhouse Ballpark', 39.754040, -104.993418],
+//     ['Blake Street Tavern', 39.757525, -104.990393],
+//     ['1 Up', 39.753907, -104.995130]
+//   ];
 
-  var happyLocations = [
-    ['Yard House', 30.310133, -95.456260, '3:00', '6:00'],
-    ['Highland Tavern', 39.764588, -105.003903, '4:00', '7:00'],
-    ['Next Door Union Station', 39.752775, -105.000816, '3:00', '6:00'],
-    ['Sports Column', 39.753664, -104.994817, '4:00', '7:00'],
-    ['Public School 303', 39.753753, -105.002923, '3:00', '7:00']
-  ];
+//   var happyLocations = [
+//     ['Yard House', 30.310133, -95.456260, '3:00', '6:00'],
+//     ['Highland Tavern', 39.764588, -105.003903, '4:00', '7:00'],
+//     ['Next Door Union Station', 39.752775, -105.000816, '3:00', '6:00'],
+//     ['Sports Column', 39.753664, -104.994817, '4:00', '7:00'],
+//     ['Public School 303', 39.753753, -105.002923, '3:00', '7:00']
+//   ];
 
-  var triviaLocations = [
-    ['Blake Street Tavern', 39.757525, -104.990393],
-    ['Federal Bar and Grill', 39.754500, -105.024991],
-    ['Cap City Tavern', 39.736208, -104.990411],
-    ['Pub on Pen', 39.736743, -104.980868],
-    ['Stoney\'s Bar and Grill', 39.734226, -104.986503]
-  ];
+//   var triviaLocations = [
+//     ['Blake Street Tavern', 39.757525, -104.990393],
+//     ['Federal Bar and Grill', 39.754500, -105.024991],
+//     ['Cap City Tavern', 39.736208, -104.990411],
+//     ['Pub on Pen', 39.736743, -104.980868],
+//     ['Stoney\'s Bar and Grill', 39.734226, -104.986503]
+//   ];
 
-  var infoWindow = new google.maps.InfoWindow();
+//   var infoWindow = new google.maps.InfoWindow();
 
-  var marker, i;
+//   var marker, i;
 
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
+//     for (i = 0; i < locations.length; i++) {  
+//       marker = new google.maps.Marker({
+//         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+//         map: map
+//       });
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
+//       google.maps.event.addListener(marker, 'click', (function(marker, i) {
+//         return function() {
+//           infowindow.setContent(locations[i][0]);
+//           infowindow.open(map, marker);
+//         }
+//       })(marker, i));
+//     }
 
   $('#tacos').on('click', () => {
     console.log('I want tacos!');
 
-    var markerLabels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var labelIndex = 0;
-
-    var initMap = () => {
-      var myLatLng = {
-        lat: 39.753101,
-        lng: -104.999082
-      };
-
-      map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: myLatLng
-      });
-
-      var marker = new google.maps.Marker({
-        position: myLatLng,
-        label: markerLabels[labelIndex++ % markerLabels.length],
-        map: map
-      });
-    };
-
-    initMap();
+    function initialize() {
+        var denver = new google.maps.LatLng(39.742043, -104.991531);
+      
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: denver,
+            zoom: 14
+          });
+      
+        var request = {
+          location: denver,
+          radius: '1000',
+          query: 'taco tuesday'
+        };
+      
+        service = new google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
+  
+        infowindow = new google.maps.InfoWindow();
+        
+      }
+  
+      function createMarker(place) {
+          var placeLoc = place.geometry.location;
+          var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location
+          })};
+      
+      function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            var place = results[i];
+            createMarker(results[i]);
+          }
+        }
+      }
 
   });
 
