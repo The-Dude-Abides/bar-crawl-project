@@ -101,7 +101,7 @@ $(document).ready(function () {
         $('.city').append(response.name);
         $('.wind').append("Wind Speed: " + response.wind.speed + " MPH");
         $('.humidity').append("Humidity " + response.main.humidity);
-        var temp = (response.main.temp - 273.15) * 1.8 + 32
-        $('.temp').append("Tempature: " + temp + "f");
+        var temp = Math.floor(((response.main.temp - 273.15) * 1.8) + 32);
+        $('.temp').append(`Tempature: ${temp}f`);
     });
 });
