@@ -62,10 +62,26 @@ $(document).ready(function () {
   $('#tacos').on('click', () => {
     console.log('I want tacos!');
     var initMap = () => {
-      var myLatLng = {
+      var myLatLng = [{
         lat: 39.753101,
         lng: -104.999082
-      };
+      },
+      {
+        lat: 39.751446,
+        lng: -105.001692
+      },
+      {
+        lat: 39.757570,
+        lng: -104.986878
+      },
+      {
+        lat: 39.759247,
+        lng: -105.010822
+      },
+      {
+        lat: 39.747763,
+        lng: -104.984184
+      }];
 
       map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
@@ -81,14 +97,110 @@ $(document).ready(function () {
 
   $('#thirsty').on('click', () => {
     console.log('I\'m thirsty!');
+    var initMap = () => {
+      var myLatLng = [{
+        lat: 39.753101,
+        lng: -104.999082
+      },
+      {
+        lat: 39.751446,
+        lng: -105.001692
+      },
+      {
+        lat: 39.757570,
+        lng: -104.986878
+      },
+      {
+        lat: 39.759247,
+        lng: -105.010822
+      },
+      {
+        lat: 39.747763,
+        lng: -104.984184
+      }];
+
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: myLatLng
+      });
+
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map
+      });
+    };
   });
 
   $('#happy').on('click', () => {
     console.log('I want to pay for cheap beer!');
+    var initMap = () => {
+      var myLatLng = [{
+        lat: 39.753101,
+        lng: -104.999082
+      },
+      {
+        lat: 39.751446,
+        lng: -105.001692
+      },
+      {
+        lat: 39.757570,
+        lng: -104.986878
+      },
+      {
+        lat: 39.759247,
+        lng: -105.010822
+      },
+      {
+        lat: 39.747763,
+        lng: -104.984184
+      }];
+
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: myLatLng
+      });
+
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map
+      });
+    };
   });
 
   $('#trivia').on('click', () => {
     console.log('I\'m feeling smart!');
+    var initMap = () => {
+      var myLatLng = [{
+        lat: 39.753101,
+        lng: -104.999082
+      },
+      {
+        lat: 39.751446,
+        lng: -105.001692
+      },
+      {
+        lat: 39.757570,
+        lng: -104.986878
+      },
+      {
+        lat: 39.759247,
+        lng: -105.010822
+      },
+      {
+        lat: 39.747763,
+        lng: -104.984184
+      }];
+
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: myLatLng
+      });
+
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map
+      });
+    };
   });
 
     // function initAutocomplete() {
