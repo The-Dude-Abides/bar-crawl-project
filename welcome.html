@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/CSS/welcome.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
@@ -22,69 +23,87 @@
     <br>
     <br> -->
 
-    <div class="row backgroundImage" id="welcomeJumbotron">
-        <div class="container">
-            <div class="jumbotron jumbotron-fluid">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <div class="row backgroundImage" id="welcomeJumbotron">
                 <div class="container">
-                    <h1 class="display-4">Welcome to Build Your Own Bar Crawl!</h1>
-                    <p class="lead">The only site, that we know of, on the internet where you can build your own bar crawl experience!.</p>
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                            <h1 class="display-4">Welcome to Build Your Own Bar Crawl!</h1>
+                            <p class="lead">The only site, that we know of, on the internet where you can build your own bar crawl experience!.</p>
+                        </div>
+                        <p class="lead">
+                            <a class="btn btn-warning btn-lg" id="logInButton" href="#" role="button">Log In</a>
+                        </p>
+                        <p class="lead">
+                            <a class="btn btn-dark btn-lg" id="signUpButton" href="#" role="button">Sign Up</a>
+                        </p>
+                    </div>
                 </div>
-                <p class="lead">
-                    <a class="btn btn-warning btn-lg" id="logInButton" href="#" role="button">Log In</a>
-                </p>
-                <p class="lead">
-                    <a class="btn btn-dark btn-lg" id="signUpButton" href="#" role="button">Sign Up</a>
-                </p>
+
             </div>
         </div>
-
+        <div class="col-md-1"></div>
     </div>
 
-    <div class="row backgroundImage" id="signUp">
-        <div class="container jumbotron jumbotron-fluid" id="signUpJumbotron">
-            <form>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Name</label>
-                    <input class="form-control" id="exampleFormControlInput1 name" placeholder="John Smith">
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <div class="row backgroundImage" id="signUp">
+                <div class="container jumbotron jumbotron-fluid" id="signUpJumbotron">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Name</label>
+                            <input class="form-control" id="exampleFormControlInput1 name" placeholder="John Smith">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1 email" placeholder="name@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Age</label>
+                            <input class="form-control" id="exampleFormControlInput1 age" placeholder="Ex: 21">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">City and State</label>
+                            <input class="form-control" id="exampleFormControlInput1 location" placeholder="Ex: Boulder, CO">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Password</label>
+                            <input type="password" class="form-control" id="exampleFormControlInput1 password" placeholder="123456">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="signUpButton">Submit</button>
                 </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Email</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1 email" placeholder="name@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Age</label>
-                    <input class="form-control" id="exampleFormControlInput1 age" placeholder="Ex: 21">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">City and State</label>
-                    <input class="form-control" id="exampleFormControlInput1 location" placeholder="Ex: Boulder, CO">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Password</label>
-                    <input type="password" class="form-control" id="exampleFormControlInput1 password" placeholder="123456">
-                </div>
-                <button type="submit" class="btn btn-primary" id="signUpButton">Submit</button>
+                </form>
+            </div>
         </div>
-        </form>
+        <div class="col-md-1"></div>
     </div>
 
-    <div class="row backgroundImage" id="logIn">
-        <div class="container jumbotron jumbotron-fluid" id="logInJumbotron">
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <div class="row backgroundImage" id="logIn">
+                <div class="container jumbotron jumbotron-fluid" id="logInJumbotron">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="logInButton">Submit</button>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary" id="logInButton">Submit</button>
+                </form>
+            </div>
         </div>
-        </form>
+        <div class="col-md-1"></div>
     </div>
-<<<<<<< HEAD
 
     <!-- Firebase linking -->
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
@@ -93,8 +112,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Linking our JS file -->
     <script type="text/javascript" src="./assets/javascript/welcome.js"></script>
-=======
->>>>>>> 9901972b0d49e9b103f679da6e33d4fd9ab0b6e9
 </body>
 
 </html>
