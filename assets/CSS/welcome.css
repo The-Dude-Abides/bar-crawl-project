@@ -55,3 +55,7 @@
 .lead {
     font-weight: bold;
 }
+
+#map {
+    height: 100%;
+  }

@@ -1,42 +1,44 @@
 $(document).ready(function () {    
-  var map;
+    var map;
+    var service;
+    var infowindow;
+    
+    function initialize() {
+      var denver = new google.maps.LatLng(39.742043, -104.991531);
+    
+      map = new google.maps.Map(document.getElementById('map'), {
+          center: denver,
+          zoom: 14
+        });
+    
+      var request = {
+        location: denver,
+        radius: '1000',
+        query: 'trivia'
+      };
+    
+      service = new google.maps.places.PlacesService(map);
+      service.textSearch(request, callback);
 
-  function initialize() {
-    // Create a map centered in Pyrmont, Sydney (Australia).
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {
-        lat: 39.7392,
-        lng: -104.9903
-      },
-      zoom: 15
-    });
+      infowindow = new google.maps.InfoWindow();
+      
+    }
 
-    // Search for Google's office in Australia.
-    var request = {
-      location: map.getCenter(),
-      radius: '500',
-      query: $('#searchBox').val()
-    };
-
-    // var service = new google.maps.places.PlacesService(map);
-
-    // service.textSearch(request, callback);
-  };
-
-  // Checks that the PlacesServiceStatus is OK, and adds a marker
-  // using the place ID and location from the PlacesService.
-
-  function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-      var marker = new google.maps.Marker({
-        map: map,
-        place: {
-          placeId: results[0].place_id,
-          location: results[0].geometry.location
+    function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        })};
+    
+    function callback(results, status) {
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          var place = results[i];
+          createMarker(results[i]);
         }
-      });
-    };
-  };
+      }
+    }
 
   google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -152,6 +154,7 @@ $(document).ready(function () {
     initMap();
     
   });
+
 
     // function initAutocomplete() {
     //     var map = new google.maps.Map($('#map'), {
@@ -295,4 +298,4 @@ $(document).ready(function () {
     //         }
     //     }
     // }
-});
+    });
