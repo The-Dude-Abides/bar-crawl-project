@@ -1,15 +1,10 @@
 /* Always set the map height explicitly to define the size of the div element that contains the map. */
 
-#map {
-  height: 600px;
-  border-radius: 10px;
-}
-
 #mapBackground {
     margin-top: -25px;
     border-radius: 10px;
     width: 800px;
-    height: 750px;
+    height: 725px;
     background: url(../../images/chalkboard.png);
     color: white;
 }
@@ -21,6 +16,25 @@
     height: 250px;
     background: url(../../images/chalkboard.png);
     color: white;
+}
+
+#eventButtons {
+    margin-top: -25px;
+    float: left;
+    border-radius: 10px;
+    margin-left: 35px;
+    height: 375px;
+    width: 200px;
+    background: url(../../images/chalkboard.png);
+}
+
+#eventButtons > h3 {
+    color: white;
+}
+
+#map {
+    height: 600px;
+    border-radius: 10px;
 }
   
 /* Optional: Makes the sample page fill the window. */

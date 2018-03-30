@@ -89,7 +89,7 @@ $(document).ready(function () {
     var APIKey = "5dd2a3eaffbc2b464e3e24b8a9a82bb7";
 
     // Here we are building the URL we need to query the database
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Denver,Colorado&appid=" + APIKey;
+    var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=Denver,Colorado&appid=${APIKey}`;
 
     // We then created an AJAX call
     $.ajax({
