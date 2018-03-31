@@ -48,8 +48,8 @@ $(document).ready(function () {
 
     function signUp() {
 
-        var userEmailSignUp = document.getElementById("signUpEmail").val();
-        var userPassSignUp = document.getElementById("signUpPassword").val();
+        var userEmailSignUp = $("#signUpEmail").val();
+        var userPassSignUp = $("#signUpPassword").val();
 
         console.log(userEmailSignUp + ' ' + userPassSignUp)
 
