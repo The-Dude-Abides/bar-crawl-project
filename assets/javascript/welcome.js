@@ -56,7 +56,7 @@ $(document).ready(function () {
             window.alert("error: " + errorMessage);
             // ...
         });
-
+        
     }
 
     $('#signUpSubmitButton').on('click', function (event) {
