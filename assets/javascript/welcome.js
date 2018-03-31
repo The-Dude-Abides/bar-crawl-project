@@ -43,48 +43,56 @@ $(document).ready(function () {
 
     $('#signUpSubmitButton').on('click', function (event) {
         event.preventDefault();
-        function signUp() {
-
-            var userEmailSignUp = document.getElementById("signUpEmail").val();
-            var userPassSignUp = document.getElementById("signUpPassword").val();
-
-            console.log(userEmailSignUp + userPassSignUp)
-
-            firebase.auth().createUserWithEmailAndPassword(userEmailSignUp, userPassSignUp).catch(function (error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-
-                window.alert("error : " + errorMessage);
-                // ...
-            });
-
-        }
+        signUp();
     });
+
+    function signUp() {
+
+        var userEmailSignUp = document.getElementById("signUpEmail").val();
+        var userPassSignUp = document.getElementById("signUpPassword").val();
+
+        console.log(userEmailSignUp + userPassSignUp)
+
+        firebase.auth().createUserWithEmailAndPassword(userEmailSignUp, userPassSignUp).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+
+            window.alert("error : " + errorMessage);
+            // ...
+        });
+
+    }
 
     $('#logInSubmitButton').on('click', function (event) {
-        function login() {
-            var userEmail = document.getElementById("logInEmail").val();
-            var userPass = document.getElementById("logInPass").val();
-
-            console.log(userEmail + userPass)
-
-            firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-
-                window.alert("error : " + errorMessage);
-                // ...
-            });
-
-        }
+        event.preventDefault();
+        login();
     });
 
+    function login() {
+        var userEmail = document.getElementById("logInEmail").val();
+        var userPass = document.getElementById("logInPass").val();
+
+        console.log(userEmail + userPass)
+
+        firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+
+            window.alert("error : " + errorMessage);
+            // ...
+        });
+
+    }
+
+    function logout() {
+        firebase.auth().signOut();
+    }
+
     $('#logOutButton').on('click', function (event) {
-        function logout() {
-            firebase.auth().signOut();
-        }
+        event.preventDefault();
+        logout();
     });
 
 
