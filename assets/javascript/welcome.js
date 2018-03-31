@@ -61,7 +61,7 @@ $(document).ready(function () {
             window.alert("error: " + errorMessage);
             // ...
         });
-
+        
     }
 
     $('#logInSubmitButton').on('click', function (event) {
