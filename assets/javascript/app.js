@@ -2,10 +2,9 @@ $(document).ready(function () {
     var map;
     var service;
     var infowindow;
-    
+    var denver = new google.maps.LatLng(39.742043, -104.991531);
+
     function initialize() {
-      var denver = new google.maps.LatLng(39.742043, -104.991531);
-    
       map = new google.maps.Map(document.getElementById('map'), {
           center: denver,
           zoom: 14
@@ -114,12 +113,52 @@ $(document).ready(function () {
 //       })(marker, i));
 //     }
 
+  $('#bars').on('click', () => {
+    console.log('Show me bars!')
+    function initialize() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: denver,
+        zoom: 14
+      });
+    
+      var request = {
+        location: denver,
+        radius: '1000',
+        query: 'bars'
+      };
+    
+      service = new google.maps.places.PlacesService(map);
+      service.textSearch(request, callback);
+
+      infowindow = new google.maps.InfoWindow();
+      
+    }
+  
+    function createMarker(place) {
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: placeLoc
+      });
+    };
+    
+    function callback(results, status) {
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          var place = results[i];
+          createMarker(results[i]);
+        }
+      }
+    }
+    initialize();
+    createMarker();
+    callback();
+  });
+
   $('#tacos').on('click', () => {
     console.log('I want tacos!');
 
     function initialize() {
-      var denver = new google.maps.LatLng(39.742043, -104.991531);
-    
       map = new google.maps.Map(document.getElementById('map'), {
         center: denver,
         zoom: 14
@@ -163,8 +202,6 @@ $(document).ready(function () {
     console.log('I\'m thirsty!');
 
     function initialize() {
-      var denver = new google.maps.LatLng(39.742043, -104.991531);
-    
       map = new google.maps.Map(document.getElementById('map'), {
         center: denver,
         zoom: 14
@@ -208,8 +245,6 @@ $(document).ready(function () {
     console.log('I want to pay for cheap beer!');
 
     function initialize() {
-      var denver = new google.maps.LatLng(39.742043, -104.991531);
-    
       map = new google.maps.Map(document.getElementById('map'), {
         center: denver,
         zoom: 14
@@ -253,8 +288,6 @@ $(document).ready(function () {
     console.log('I\'m feeling smart!');
 
     function initialize() {
-      var denver = new google.maps.LatLng(39.742043, -104.991531);
-    
       map = new google.maps.Map(document.getElementById('map'), {
         center: denver,
         zoom: 14
@@ -298,8 +331,6 @@ $(document).ready(function () {
     console.log('I feel like dancing!');
 
     function initialize() {
-      var denver = new google.maps.LatLng(39.742043, -104.991531);
-    
       map = new google.maps.Map(document.getElementById('map'), {
         center: denver,
         zoom: 14
@@ -343,8 +374,6 @@ $(document).ready(function () {
     console.log('I\'m hungry!');
 
     function initialize() {
-      var denver = new google.maps.LatLng(39.742043, -104.991531);
-    
       map = new google.maps.Map(document.getElementById('map'), {
         center: denver,
         zoom: 14
@@ -383,6 +412,7 @@ $(document).ready(function () {
     createMarker();
     callback();
   });
+});
 
     // function initAutocomplete() {
     //     var map = new google.maps.Map($('#map'), {
@@ -526,4 +556,3 @@ $(document).ready(function () {
     //         }
     //     }
     // }
-    });
