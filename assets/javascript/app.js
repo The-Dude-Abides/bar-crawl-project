@@ -25,14 +25,13 @@ $(document).ready(function () {
     }
 
     function createMarker(place) {
-
       var placeLoc = place.geometry.location;
       // Adam knows why ^^ this ^^ line (and identical lines below) isn't working: JavaScript doesn't know how to handle multiple locations in this way.  I don't know how to fix it, but now I know why.
 
       var marker = new google.maps.Marker({
         map: map,
         position: placeLoc
-      })
+      });
     };
     
     function callback(results, status) {
