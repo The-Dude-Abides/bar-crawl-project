@@ -88,6 +88,7 @@ $(document).ready(function () {
 
     function logout() {
         firebase.auth().signOut();
+        console.log('logged out');
     }
 
     $('#logOutButton').on('click', function (event) {
