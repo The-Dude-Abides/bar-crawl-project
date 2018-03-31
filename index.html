@@ -1,78 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/CSS/index.css">
+    <link rel="stylesheet" href="./assets/CSS/welcome.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./assets/javascript/app.js"></script>
-    <title>Bar Crawl</title>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="./assets/javascript/welcome.js"></script>
+    <title>Welcome to your bar crawl!</title>
 </head>
-<body style="background: url(./images/vaio_hard_edge.png);">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 300px; margin-top: -35px; background: url('https://media.giphy.com/media/EFbbyuaqmFnu8/giphy.gif');">
+
+<body class="body">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index: 3; height: 300px; margin-top: -35px; margin-left: -100px; background: url('https://media.giphy.com/media/EFbbyuaqmFnu8/giphy.gif');">
     </nav>
+
+    <!-- <br>
     <br>
     <br>
+    <br> -->
+
     <div class="row">
-        <div class="col-md-2">
-            <div class="container" id="eventButtons">
-                <br>
-                <h3>Events</h3>
-                <button type="button" class="btn btn-primary btn-lg" style="background-color: yellow; border: yellow; color: black;" id="bars">All Bars</button>
-                <br><br>
-                <button type="button" class="btn btn-primary btn-lg" style="background-color: red; border: red;" id="tacos">Taco Tuesday</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-primary btn-lg" style="background-color: Green; border: Green;" id="thirsty">Thirsty Thursday</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-primary btn-lg" id="happy">Happy Hour</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-primary btn-lg" style="background-color: purple; border: purple;" id="trivia">Trivia Night</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-primary btn-lg" id="music" style="background-color: orange; border: orange;">Karaoke</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-primary btn-lg" id="food" style="background-color: teal; border: teal;">Munchies</button>
-            </div>
-        </div>
-        <div class="col-md-7">
-            <div class="container" id="mapBackground">
-                <h3>Your Denver Bar Crawl</h3>
-                <!-- <input id="pac-input" class="controls" type="text" id="searchBox" placeholder="Search Box"> -->
-                <div id="map"></div>
-                <div class="row">
-                    <div class="container">
-                        <a href="https://m.uber.com/ul/?action=setPickup">
-                            <h1>Get an Uber!</h1>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-                <div class="container" id="weatherBackground">
-                    <div class="row">
-                        <div class="col-sm">
-                            <div class="city" style="font-size: 40px"></div>
-                            <br>
-                            <div class="wind"></div>
-                            <br>
-                            <div class="humidity"></div>
-                            <br>
-                            <div class="temp"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <div class="row backgroundImage" id="welcomeJumbotron">
+                <div class="container">
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                            <h1 class="display-4">Welcome to Build Your Own Bar Crawl!</h1>
+                            <p class="lead">The only site, that we know of, on the internet where you can build your own bar crawl experience!.</p>
                         </div>
+                        <p class="lead">
+                            <a class="btn btn-warning btn-lg" id="logInButton" href="#" role="button">Log In</a>
+                        </p>
+                        <p class="lead">
+                            <a class="btn btn-dark btn-lg" id="signUpButton" href="#" role="button">Sign Up</a>
+                        </p>
+                        <p class="lead">
+                                <a class="btn btn-danger btn-lg" id="logOutButton" href="#" role="button">Log Out</a>
+                            </p>
                     </div>
                 </div>
+
+            </div>
         </div>
+        <div class="col-md-1"></div>
     </div>
 
-    <br>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2F6WySHJToPy50Ey-bsb6GkzV9rHAfJA&libraries=places"></script>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <div class="row backgroundImage" id="signUp">
+                <div class="container jumbotron jumbotron-fluid" id="signUpJumbotron">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email</label>
+                            <input type="email" class="form-control signUpEmail" id="exampleFormControlInput1 email" placeholder="name@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Password</label>
+                            <input type="password" class="form-control signUpPassword" id="exampleFormControlInput1 password" placeholder="123456">
+                        </div>
+                        <a href="./index.html"><button type="submit" class="btn btn-primary" id="signUpSubmitButton">Submit</button></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <div class="row backgroundImage" id="logIn">
+                <div class="container jumbotron jumbotron-fluid" id="logInJumbotron">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control logInEmail" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control logInPass" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <a href="./index.html"><button type="submit" class="btn btn-primary" id="logInSubmitButton">Submit</button></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
 </body>
+
 </html>
