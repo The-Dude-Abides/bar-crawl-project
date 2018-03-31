@@ -26,9 +26,10 @@ $(document).ready(function () {
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            document.getElementById("welcomeJumbotron").show;
+            document.getElementById("welcomeJumbotron").hide;
             document.getElementById("signUpJumbotron").hide;
             document.getElementById("logInJumbotron").hide;
+            window.location.href = 'index.html';
 
 
         } else {
@@ -67,6 +68,10 @@ $(document).ready(function () {
             // ...
         });
 
+    }
+
+    function logout() {
+        firebase.auth().signOut();
     }
 
 
