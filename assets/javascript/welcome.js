@@ -24,12 +24,14 @@ $(document).ready(function () {
     };
     firebase.initializeApp(config);
 
+    var database = firebase.database();
+
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            document.getElementById("welcomeJumbotron").hide;
+            document.getElementById("welcomeJumbotron").show;
             document.getElementById("signUpJumbotron").hide;
             document.getElementById("logInJumbotron").hide;
-            window.location.href = 'index.html';
+            // window.location.href = 'index.html';
 
 
         } else {
@@ -38,37 +40,43 @@ $(document).ready(function () {
             document.getElementById("logInJumbotron").hide;
         }
     });
+    $('#signUpSubmitButton').on('click', function (event) {
+        event.preventDefault();
+        function signUp() {
 
-    function signUp() {
+            var userEmailSignUp = document.getElementById("signUpEmail").val();
+            var userPassSignUp = document.getElementById("signUpPassword").val();
 
-        var userEmailSignUp = document.getElementById("signUpEmail").val();
-        var userPassSignUp = document.getElementById("signUpPassword").val();
+            console.log(userEmailSignUp + userPassSignUp)
 
-        firebase.auth().createUserWithEmailAndPassword(userEmailSignUp, userPassSignUp).catch(function (error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
+            firebase.auth().createUserWithEmailAndPassword(userEmailSignUp, userPassSignUp).catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
 
-            window.alert("error : " + errorMessage);
-            // ...
-        });
+                window.alert("error : " + errorMessage);
+                // ...
+            });
 
-    }
+        }
+    });
 
-    function login() {
-        var userEmail = document.getElementById("logInEmail").val();
-        var userPass = document.getElementById("logInPass").val();
+    $('#logInSubmitButton').on('click', function (event) {
+        function login() {
+            var userEmail = document.getElementById("logInEmail").val();
+            var userPass = document.getElementById("logInPass").val();
 
-        firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
+            firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
 
-            window.alert("error : " + errorMessage);
-            // ...
-        });
+                window.alert("error : " + errorMessage);
+                // ...
+            });
 
-    }
+        }
+    });
 
     function logout() {
         firebase.auth().signOut();
