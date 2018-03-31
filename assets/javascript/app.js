@@ -115,128 +115,271 @@ $(document).ready(function () {
     console.log('I want tacos!');
 
     function initialize() {
-        var denver = new google.maps.LatLng(39.742043, -104.991531);
+      var denver = new google.maps.LatLng(39.742043, -104.991531);
+    
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: denver,
+        zoom: 14
+      });
+    
+      var request = {
+        location: denver,
+        radius: '1000',
+        query: 'taco+tuesday'
+      };
+    
+      service = new google.maps.places.PlacesService(map);
+      service.textSearch(request, callback);
+
+      infowindow = new google.maps.InfoWindow();
       
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: denver,
-            zoom: 14
-          });
-      
-        var request = {
-          location: denver,
-          radius: '1000',
-          query: 'taco tuesday'
-        };
-      
-        service = new google.maps.places.PlacesService(map);
-        service.textSearch(request, callback);
+    }
   
-        infowindow = new google.maps.InfoWindow();
-        
-      }
-  
-      function createMarker(place) {
-          var placeLoc = place.geometry.location;
-          var marker = new google.maps.Marker({
-            map: map,
-            position: place.geometry.location
-          })};
-      
-      function callback(results, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            var place = results[i];
-            createMarker(results[i]);
-          }
+    function createMarker(place) {
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: placeLoc
+      });
+    };
+    
+    function callback(results, status) {
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          var place = results[i];
+          createMarker(results[i]);
         }
       }
-
+    }
+    initialize();
+    createMarker();
+    callback();
   });
 
   $('#thirsty').on('click', () => {
     console.log('I\'m thirsty!');
 
-    var markerLabels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var labelIndex = 0;
-
-    var initMap = () => {
-      var myLatLng = {
-        lat: 39.754478,
-        lng: -104.995178
-      };
-
+    function initialize() {
+      var denver = new google.maps.LatLng(39.742043, -104.991531);
+    
       map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: myLatLng
+        center: denver,
+        zoom: 14
       });
+    
+      var request = {
+        location: denver,
+        radius: '1000',
+        query: 'thirst+thursday'
+      };
+    
+      service = new google.maps.places.PlacesService(map);
+      service.textSearch(request, callback);
 
+      infowindow = new google.maps.InfoWindow();
+      
+    }
+  
+    function createMarker(place) {
+      var placeLoc = place.geometry.location;
       var marker = new google.maps.Marker({
-        position: myLatLng,
-        label: markerLabels[labelIndex++ % markerLabels.length],
-        map: map
+        map: map,
+        position: placeLoc
       });
     };
-
-    initMap();
-
+    
+    function callback(results, status) {
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          var place = results[i];
+          createMarker(results[i]);
+        }
+      }
+    }
+    initialize();
+    createMarker();
+    callback();
   });
 
   $('#happy').on('click', () => {
     console.log('I want to pay for cheap beer!');
 
-    var markerLabels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var labelIndex = 0;
-
-    var initMap = () => {
-      var myLatLng = {
-        lat: 30.310133,
-        lng: -95.456260
-      };
-
+    function initialize() {
+      var denver = new google.maps.LatLng(39.742043, -104.991531);
+    
       map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: myLatLng
+        center: denver,
+        zoom: 14
       });
+    
+      var request = {
+        location: denver,
+        radius: '1000',
+        query: 'happy+hour'
+      };
+    
+      service = new google.maps.places.PlacesService(map);
+      service.textSearch(request, callback);
 
+      infowindow = new google.maps.InfoWindow();
+      
+    }
+  
+    function createMarker(place) {
+      var placeLoc = place.geometry.location;
       var marker = new google.maps.Marker({
-        position: myLatLng,
-        label: markerLabels[labelIndex++ % markerLabels.length],
-        map: map
+        map: map,
+        position: placeLoc
       });
     };
-
-    initMap();
-
+    
+    function callback(results, status) {
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          var place = results[i];
+          createMarker(results[i]);
+        }
+      }
+    }
+    initialize();
+    createMarker();
+    callback();
   });
 
   $('#trivia').on('click', () => {
     console.log('I\'m feeling smart!');
 
-    var markerLabels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var labelIndex = 0;
-
-    var initMap = () => {
-      var myLatLng = {
-        lat: 39.757525,
-        lng: -104.990393
-      };
-      
+    function initialize() {
+      var denver = new google.maps.LatLng(39.742043, -104.991531);
+    
       map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: myLatLng
+        center: denver,
+        zoom: 14
       });
+    
+      var request = {
+        location: denver,
+        radius: '1000',
+        query: 'trivia+night'
+      };
+    
+      service = new google.maps.places.PlacesService(map);
+      service.textSearch(request, callback);
 
+      infowindow = new google.maps.InfoWindow();
+      
+    }
+  
+    function createMarker(place) {
+      var placeLoc = place.geometry.location;
       var marker = new google.maps.Marker({
-        position: myLatLng,
-        label: markerLabels[labelIndex++ % markerLabels.length],
-        map: map
+        map: map,
+        position: placeLoc
       });
     };
-
-    initMap();
-
+    
+    function callback(results, status) {
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          var place = results[i];
+          createMarker(results[i]);
+        }
+      }
+    }
+    initialize();
+    createMarker();
+    callback();
   });
 
+  $('#music').on('click', () => {
+    console.log('I feel like dancing!');
+
+    function initialize() {
+      var denver = new google.maps.LatLng(39.742043, -104.991531);
+    
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: denver,
+        zoom: 14
+      });
+    
+      var request = {
+        location: denver,
+        radius: '1000',
+        query: 'karaoke'
+      };
+    
+      service = new google.maps.places.PlacesService(map);
+      service.textSearch(request, callback);
+
+      infowindow = new google.maps.InfoWindow();
+      
+    }
+  
+    function createMarker(place) {
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: placeLoc
+      });
+    };
+    
+    function callback(results, status) {
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          var place = results[i];
+          createMarker(results[i]);
+        }
+      }
+    }
+    initialize();
+    createMarker();
+    callback();
+  });
+
+  $('#food').on('click', () => {
+    console.log('I\'m hungry!');
+
+    function initialize() {
+      var denver = new google.maps.LatLng(39.742043, -104.991531);
+    
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: denver,
+        zoom: 14
+      });
+    
+      var request = {
+        location: denver,
+        radius: '1000',
+        query: 'food'
+      };
+    
+      service = new google.maps.places.PlacesService(map);
+      service.textSearch(request, callback);
+
+      infowindow = new google.maps.InfoWindow();
+      
+    }
+  
+    function createMarker(place) {
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: placeLoc
+      });
+    };
+    
+    function callback(results, status) {
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          var place = results[i];
+          createMarker(results[i]);
+        }
+      }
+    }
+    initialize();
+    createMarker();
+    callback();
+  });
 
     // function initAutocomplete() {
     //     var map = new google.maps.Map($('#map'), {
