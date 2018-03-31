@@ -25,11 +25,12 @@ $(document).ready(function () {
     }
 
     function createMarker(place) {
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
-        })};
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: placeLoc
+      })
+    };
     
     function callback(results, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
