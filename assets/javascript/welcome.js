@@ -22,48 +22,98 @@ $(document).ready(function () {
         storageBucket: "bar-crawl-project.appspot.com",
         messagingSenderId: "895017151245"
     };
-
     firebase.initializeApp(config);
 
-    // get elements
-    const txtEmail = document.getElementById('signUpEmail');
-    const txtPassword = document.getElementById('signUpPassword');
-    const signUpButton = document.getElementById('signUpSubmitButton');
-    const logInButton = document.getElementById('logInButton');
-    const logOutButton = document.getElementById('logOut');
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            document.getElementById("welcomeJumbotron").show;
+            document.getElementById("signUpJumbotron").hide;
+            document.getElementById("logInJumbotron").hide;
 
-    // add login event
-    logInButton.addEventListener('click', e => {
-        // get email and pass
-        const email = txtEmail.val().trim();
-        const password = txtPassword.val().trim();
-        const auth = firebase.auth();
 
-        // sign in
-        const promise = auth.signInWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message));
-    });
-
-    // add signup event
-    signUpButton.addEventListener('click', e => {
-        // get email and pass
-        const email = txtEmail.val().trim();
-        const password = txtPassword.val().trim();
-        const auth = firebase.auth();
-
-        // sign in
-        const promise = auth.createUserWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message));
-    });
-
-    // add realtime listener
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        if (firebaseUser) {
-            console.log(firebaseUser);
         } else {
-            console.log('not logged in');
-        };
+            document.getElementById("signUpJumbotron").show;
+            document.getElementById("welcomeJumbotron").hide;
+            document.getElementById("logInJumbotron").hide;
+        }
     });
+
+    function signUp() {
+
+        var userEmailSignUp = document.getElementById("signUpEmail").val();
+        var userPassSignUp = document.getElementById("signUpPassword").val();
+
+        firebase.auth().createUserWithEmailAndPassword(userEmailSignUp, userPassSignUp).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+
+            window.alert("error : " + errorMessage);
+            // ...
+        });
+
+    }
+
+    function login() {
+        var userEmail = document.getElementById("logInEmail").val();
+        var userPass = document.getElementById("logInPass").val();
+
+        firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+
+            window.alert("error : " + errorMessage);
+            // ...
+        });
+
+    }
+
+
+
+
+
+    // // get elements
+    // const txtEmail = document.getElementById('signUpEmail');
+    // const txtPassword = document.getElementById('signUpPassword');
+    // const signUpButton = document.getElementById('signUpSubmitButton');
+    // const logInButton = document.getElementById('logInButton');
+    // const logOutButton = document.getElementById('logOut');
+
+    // // add login event
+    // logInButton.addEventListener('click', e => {
+    //     // get email and pass
+    //     const email = txtEmail.val().trim();
+    //     const password = txtPassword.val().trim();
+    //     const auth = firebase.auth();
+
+    //     // sign in
+    //     const promise = auth.signInWithEmailAndPassword(email, pass);
+    //     promise.catch(e => console.log(e.message));
+    // });
+
+    // // add signup event
+    // signUpButton.addEventListener('click', e => {
+    //     // get email and pass
+    //     const email = txtEmail.val().trim();
+    //     const password = txtPassword.val().trim();
+    //     const auth = firebase.auth();
+
+    //     // sign in
+    //     const promise = auth.createUserWithEmailAndPassword(email, pass);
+    //     promise.catch(e => console.log(e.message));
+    // });
+
+    // // add realtime listener
+    // firebase.auth().onAuthStateChanged(firebaseUser => {
+    //     if (firebaseUser) {
+    //         console.log(firebaseUser);
+    //     } else {
+    //         console.log('not logged in');
+    //     };
+    // });
+
+
 
     // var database = firebase.database();
 
