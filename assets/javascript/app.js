@@ -13,7 +13,7 @@ $(document).ready(function () {
       var request = {
         location: denver,
         radius: '500',
-        query: 'bar'
+        query: 'bars'
       };
     
       service = new google.maps.places.PlacesService(map);
