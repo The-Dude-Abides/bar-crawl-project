@@ -173,7 +173,7 @@ $(document).ready(function () {
       var request = {
         location: denver,
         radius: '1000',
-        query: 'thirst+thursday'
+        query: 'drink'
       };
     
       service = new google.maps.places.PlacesService(map);
