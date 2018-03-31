@@ -24,7 +24,7 @@ $(document).ready(function () {
     };
     firebase.initializeApp(config);
 
-    var database = firebase.database();
+    // var database = firebase.database();
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -40,6 +40,7 @@ $(document).ready(function () {
             document.getElementById("logInJumbotron").hide;
         }
     });
+
     $('#signUpSubmitButton').on('click', function (event) {
         event.preventDefault();
         function signUp() {
@@ -66,6 +67,8 @@ $(document).ready(function () {
             var userEmail = document.getElementById("logInEmail").val();
             var userPass = document.getElementById("logInPass").val();
 
+            console.log(userEmail + userPass)
+
             firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
@@ -78,10 +81,11 @@ $(document).ready(function () {
         }
     });
 
-    function logout() {
-        firebase.auth().signOut();
-    }
-
+    $('#logOutButton').on('click', function (event) {
+        function logout() {
+            firebase.auth().signOut();
+        }
+    });
 
 
 
