@@ -31,7 +31,7 @@ $(document).ready(function () {
             document.getElementById("welcomeJumbotron").show;
             document.getElementById("signUpJumbotron").hide;
             document.getElementById("logInJumbotron").hide;
-            // window.location.href = 'index.html';
+            window.location.href = 'welcome.html';
 
 
         } else {
