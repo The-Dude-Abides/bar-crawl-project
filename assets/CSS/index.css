@@ -22,14 +22,14 @@
 }
 
 #eventButtons {
+    text-align: center;
     margin-top: -25px;
     float: left;
     border-radius: 10px;
-    margin-left: 35px;
-    height: 530px;
-    width: 200px;
+    margin-left: 25px;
+    height: 550px;
+    width: 210px;
     background: url(../../images/chalkboard.png);
-    text-align: center;
 }
 
 #eventButtons > h3 {
