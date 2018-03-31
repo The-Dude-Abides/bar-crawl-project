@@ -51,14 +51,14 @@ $(document).ready(function () {
         var userEmailSignUp = document.getElementById("signUpEmail").val();
         var userPassSignUp = document.getElementById("signUpPassword").val();
 
-        console.log(userEmailSignUp + userPassSignUp)
+        console.log(userEmailSignUp + ' ' + userPassSignUp)
 
         firebase.auth().createUserWithEmailAndPassword(userEmailSignUp, userPassSignUp).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
 
-            window.alert("error : " + errorMessage);
+            window.alert("error: " + errorMessage);
             // ...
         });
 
@@ -73,14 +73,14 @@ $(document).ready(function () {
         var userEmail = document.getElementById("logInEmail").val();
         var userPass = document.getElementById("logInPass").val();
 
-        console.log(userEmail + userPass)
+        console.log(userEmail + ' ' + userPass)
 
         firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
 
-            window.alert("error : " + errorMessage);
+            window.alert("error: " + errorMessage);
             // ...
         });
 
