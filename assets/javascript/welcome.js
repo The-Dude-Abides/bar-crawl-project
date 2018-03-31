@@ -70,8 +70,8 @@ $(document).ready(function () {
     });
 
     function login() {
-        var userEmail = document.getElementById("logInEmail").val();
-        var userPass = document.getElementById("logInPass").val();
+        var userEmail = $("#logInEmail").val();
+        var userPass = $("#logInPass").val();
 
         console.log(userEmail + ' ' + userPass)
 
